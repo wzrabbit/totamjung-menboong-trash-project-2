@@ -30,16 +30,15 @@ export const fetchOptionsData = async (): Promise<OptionsDataResponse> => {
   ]);
 
   return {
-    [STORAGE_KEY.CHECKED_ALGORITHM_IDS]: checkedAlgorithmIdsResponse.checkedIds,
-    [STORAGE_KEY.QUICK_SLOTS]: quickSlotsResponse,
-    [STORAGE_KEY.TOTAMJUNG_THEME]: totamjungThemeResponse.totamjungTheme,
-    [STORAGE_KEY.HIDER_OPTIONS]: hiderOptionsResponse,
-    [STORAGE_KEY.RANDOM_DEFENSE_HISTORY]:
-      randomDefenseHistoryResponse.randomDefenseHistory,
-    [STORAGE_KEY.IS_TIER_HIDDEN]: randomDefenseHistoryResponse.isHidden,
-    [STORAGE_KEY.FONT_NO]: fontNoResponse['fontNo'],
-    [STORAGE_KEY.TIMERS]: timersResponse['timers'],
-    [STORAGE_KEY.DATA_VERSION]: 'v1.2',
+    checkedAlgorithmIds: checkedAlgorithmIdsResponse.checkedIds,
+    quickSlots: quickSlotsResponse,
+    totamjungTheme: totamjungThemeResponse.totamjungTheme,
+    hiderOptions: hiderOptionsResponse,
+    randomDefenseHistory: randomDefenseHistoryResponse.randomDefenseHistory,
+    isTierHidden: randomDefenseHistoryResponse.isHidden,
+    fontNo: fontNoResponse['fontNo'],
+    [timers]: timersResponse['timers'],
+    dataVersion: 'v1.2',
   };
 };
 

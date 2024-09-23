@@ -29,15 +29,15 @@ export const COMMANDS = {
  * 이는 데이터의 크기가 `chrome.storage.sync`에 저장할 수 있는 한도를 넘기 때문입니다.
  */
 export const STORAGE_KEY = {
-  DATA_VERSION: 'dataVersion',
-  CHECKED_ALGORITHM_IDS: 'checkedAlgorithmIds',
-  QUICK_SLOTS: 'quickSlots',
-  TOTAMJUNG_THEME: 'totamjungTheme',
-  HIDER_OPTIONS: 'hiderOptions',
-  RANDOM_DEFENSE_HISTORY: 'randomDefenseHistory',
-  IS_TIER_HIDDEN: 'isTierHidden',
-  FONT_NO: 'fontNo',
-  TIMERS: 'timers',
+  DATA_VERSION: 'local:dataVersion',
+  CHECKED_ALGORITHM_IDS: 'local:checkedAlgorithmIds',
+  QUICK_SLOTS: 'local:quickSlots',
+  TOTAMJUNG_THEME: 'local:totamjungTheme',
+  HIDER_OPTIONS: 'local:hiderOptions',
+  RANDOM_DEFENSE_HISTORY: 'local:randomDefenseHistory',
+  IS_TIER_HIDDEN: 'local:isTierHidden',
+  FONT_NO: 'local:fontNo',
+  TIMERS: 'local:timers',
 } as const;
 
 /**
@@ -46,13 +46,13 @@ export const STORAGE_KEY = {
  * 필요한 키들입니다.
  */
 export const LEGACY_SYNC_STORAGE_KEY = {
-  CHECKED_ALGORITHM_IDS: 'algorithm',
-  QUICK_SLOTS: 'query',
-  TOTAMJUNG_THEME: 'theme',
-  TIMER: 'timer',
-  SETTINGS: 'settings',
+  CHECKED_ALGORITHM_IDS: 'sync:algorithm',
+  QUICK_SLOTS: 'sync:query',
+  TOTAMJUNG_THEME: 'sync:theme',
+  TIMER: 'sync:timer',
+  SETTINGS: 'sync:settings',
 } as const;
 
 export const LEGACY_LOCAL_STORAGE_KEY = {
-  RANDOM_DEFENSE_HISTORY: 'queryLog',
+  RANDOM_DEFENSE_HISTORY: 'local:queryLog',
 } as const;

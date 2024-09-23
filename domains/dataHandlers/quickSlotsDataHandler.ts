@@ -3,8 +3,8 @@ import { sanitizeQuickSlots } from './sanitizers/quickSlotsSanitizer';
 import { isRepairableQuickSlotsResponse } from './validators/quickSlotsValidator';
 
 export const fetchQuickSlots = async () => {
-  const data = await chrome.storage.local.get(STORAGE_KEY.QUICK_SLOTS);
-  const quickSlots = data[STORAGE_KEY.QUICK_SLOTS];
+  const data = await chrome.storage.local.get(quickSlots);
+  const quickSlots = dataquickSlots;
 
   const sanitizedQuickSlots = sanitizeQuickSlots(quickSlots);
   return sanitizedQuickSlots;
@@ -24,6 +24,6 @@ export const saveQuickSlots = (
   const sanitizedQuickSlots = sanitizeQuickSlots(quickSlotsData);
 
   chrome.storage.local.set({
-    [STORAGE_KEY.QUICK_SLOTS]: sanitizedQuickSlots,
+    quickSlots: sanitizedQuickSlots,
   });
 };

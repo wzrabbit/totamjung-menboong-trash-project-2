@@ -492,14 +492,14 @@ describe('Test #2 - 잘못된 구버전 데이터에 대응하기', () => {
 
     expect(chrome.storage.local.get).not.toThrow();
     expect(chrome.storage.local.set).toHaveBeenCalledWith({
-      [STORAGE_KEY.CHECKED_ALGORITHM_IDS]: DEFAULT_CHECKED_ALGORITHM_IDS,
-      [STORAGE_KEY.QUICK_SLOTS]: DEFAULT_QUICK_SLOTS_RESPONSE,
-      [STORAGE_KEY.TOTAMJUNG_THEME]: DEFAULT_TOTAMJUNG_THEME,
-      [STORAGE_KEY.HIDER_OPTIONS]: DEFAULT_HIDER_OPTIONS,
-      [STORAGE_KEY.RANDOM_DEFENSE_HISTORY]: DEFAULT_RANDOM_DEFENSE_HISTORY,
-      [STORAGE_KEY.IS_TIER_HIDDEN]: DEFAULT_IS_TIER_HIDDEN,
-      [STORAGE_KEY.FONT_NO]: DEFAULT_FONT_NO,
-      [STORAGE_KEY.DATA_VERSION]: 'v1.2',
+      checkedAlgorithmIds: DEFAULT_CHECKED_ALGORITHM_IDS,
+      quickSlots: DEFAULT_QUICK_SLOTS_RESPONSE,
+      totamjungTheme: DEFAULT_TOTAMJUNG_THEME,
+      hiderOptions: DEFAULT_HIDER_OPTIONS,
+      randomDefenseHistory: DEFAULT_RANDOM_DEFENSE_HISTORY,
+      isTierHidden: DEFAULT_IS_TIER_HIDDEN,
+      fontNo: DEFAULT_FONT_NO,
+      dataVersion: 'v1.2',
     });
   });
 });

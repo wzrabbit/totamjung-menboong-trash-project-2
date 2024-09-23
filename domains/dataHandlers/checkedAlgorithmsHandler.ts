@@ -5,10 +5,9 @@ import type { CheckedAlgorithmIdsResponse } from '@/types/algorithm';
 
 export const fetchCheckedAlgorithmIds =
   async (): Promise<CheckedAlgorithmIdsResponse> => {
-    const data = await chrome.storage.local.get(
+    const checkedAlgorithmIds = await storage.getItem(
       STORAGE_KEY.CHECKED_ALGORITHM_IDS,
     );
-    const checkedAlgorithmIds = data[STORAGE_KEY.CHECKED_ALGORITHM_IDS];
 
     const sanitizedAlgorithmIds =
       sanitizeCheckedAlgorithmIds(checkedAlgorithmIds);
@@ -22,7 +21,5 @@ export const saveCheckedAlgorithmIds = (checkedAlgorithmIds: unknown) => {
     return;
   }
 
-  chrome.storage.local.set({
-    [STORAGE_KEY.CHECKED_ALGORITHM_IDS]: checkedAlgorithmIds,
-  });
+  storage.setItem(STORAGE_KEY.CHECKED_ALGORITHM_IDS, checkedAlgorithmIds);
 };

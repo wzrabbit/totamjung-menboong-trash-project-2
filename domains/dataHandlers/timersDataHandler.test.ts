@@ -31,7 +31,7 @@ describe('Test #1 - 타이머 리스트 데이터 불러오기', () => {
     jest.useFakeTimers().setSystemTime(new Date('2024-01-01T00:00:00.000Z'));
 
     expect(await fetchTimers()).toEqual({
-      [STORAGE_KEY.TIMERS]: timers,
+      [timers]: timers,
     });
   });
 
@@ -64,7 +64,7 @@ describe('Test #1 - 타이머 리스트 데이터 불러오기', () => {
     jest.useFakeTimers().setSystemTime(new Date('2024-01-01T00:00:00.000Z'));
 
     expect(await fetchTimers()).toEqual({
-      [STORAGE_KEY.TIMERS]: expected,
+      [timers]: expected,
     });
   });
 
@@ -85,7 +85,7 @@ describe('Test #1 - 타이머 리스트 데이터 불러오기', () => {
     jest.useFakeTimers().setSystemTime(new Date('2024-01-01T00:00:00.000Z'));
 
     expect(await fetchTimers()).toEqual({
-      [STORAGE_KEY.TIMERS]: expected,
+      [timers]: expected,
     });
   });
 });
@@ -144,7 +144,7 @@ describe('Test #2 - 잘못된 타이머 리스트 데이터에 대응하기', ()
     jest.useFakeTimers().setSystemTime(new Date('2024-01-01T00:00:00.000Z'));
 
     expect(await fetchTimers()).toEqual({
-      [STORAGE_KEY.TIMERS]: expected,
+      [timers]: expected,
     });
   });
 
@@ -157,7 +157,7 @@ describe('Test #2 - 잘못된 타이머 리스트 데이터에 대응하기', ()
     jest.useFakeTimers().setSystemTime(new Date('2024-01-01T00:00:00.000Z'));
 
     expect(await fetchTimers()).toEqual({
-      [STORAGE_KEY.TIMERS]: DEFAULT_TIMERS,
+      [timers]: DEFAULT_TIMERS,
     });
   });
 });
@@ -185,7 +185,7 @@ describe('Test #3 - 타이머 리스트 저장하기', () => {
     saveTimers(timers);
 
     expect(chrome.storage.local.set).toHaveBeenCalledWith({
-      [STORAGE_KEY.TIMERS]: timers,
+      [timers]: timers,
     });
   });
 });
@@ -337,7 +337,7 @@ describe('Test #5 - 문제 번호에 해당하는 잠금 타이머 처리 후 �
     await Promise.resolve();
 
     expect(chrome.storage.local.set).toHaveBeenCalledWith({
-      [STORAGE_KEY.TIMERS]: expected,
+      [timers]: expected,
     });
     expect(lockTime).toBe(20 * 60 * 1_000);
   });
@@ -465,7 +465,7 @@ describe('Test #5 - 문제 번호에 해당하는 잠금 타이머 처리 후 �
     await Promise.resolve();
 
     expect(chrome.storage.local.set).toHaveBeenCalledWith({
-      [STORAGE_KEY.TIMERS]: expected,
+      [timers]: expected,
     });
     expect(lockTime).toBe(270 * 60 * 1_000);
   });
@@ -501,14 +501,14 @@ describe('Test #6 - 하나의 타이머를 제거하기', () => {
     jest.clearAllMocks();
     jest
       .spyOn(chrome.storage.local, 'get')
-      .mockImplementation(() => ({ [STORAGE_KEY.TIMERS]: timers }));
+      .mockImplementation(() => ({ [timers]: timers }));
     jest.spyOn(chrome.storage.local, 'set').mockImplementation(() => {});
     jest.useFakeTimers().setSystemTime(new Date('2023-01-01T00:00:00.000Z'));
 
     await removeSingleTimerByProblemId(2000);
 
     expect(chrome.storage.local.set).toHaveBeenCalledWith({
-      [STORAGE_KEY.TIMERS]: expected,
+      [timers]: expected,
     });
   });
 
@@ -545,14 +545,14 @@ describe('Test #6 - 하나의 타이머를 제거하기', () => {
     jest.clearAllMocks();
     jest
       .spyOn(chrome.storage.local, 'get')
-      .mockImplementation(() => ({ [STORAGE_KEY.TIMERS]: timers }));
+      .mockImplementation(() => ({ [timers]: timers }));
     jest.spyOn(chrome.storage.local, 'set').mockImplementation(() => {});
     jest.useFakeTimers().setSystemTime(new Date('2023-01-01T00:00:00.000Z'));
 
     await removeSingleTimerByProblemId(2000);
 
     expect(chrome.storage.local.set).toHaveBeenCalledWith({
-      [STORAGE_KEY.TIMERS]: expected,
+      [timers]: expected,
     });
   });
 });

@@ -68,7 +68,7 @@ const validQuickSlots: QuickSlotsResponse = {
 describe('Test #1 - 퀵슬롯 정보 불러오기', () => {
   test('올바른 퀵슬롯이 저장되어 있다면, 이를 그대로 불러온 값을 반환해야 한다.', async () => {
     jest.spyOn(chrome.storage.local, 'get').mockImplementation(() => ({
-      [STORAGE_KEY.QUICK_SLOTS]: validQuickSlots,
+      quickSlots: validQuickSlots,
     }));
 
     expect(await fetchQuickSlots()).toEqual(validQuickSlots);
@@ -146,7 +146,7 @@ describe('Test #2 - 유효하지 않은 퀵슬롯 정보를 불러올 경우 대
     };
 
     jest.spyOn(chrome.storage.local, 'get').mockImplementation(() => ({
-      [STORAGE_KEY.QUICK_SLOTS]: partiallyInvalidQuickSlots,
+      quickSlots: partiallyInvalidQuickSlots,
     }));
 
     expect(await fetchQuickSlots()).toEqual(expectedResult);
@@ -221,7 +221,7 @@ describe('Test #2 - 유효하지 않은 퀵슬롯 정보를 불러올 경우 대
     };
 
     jest.spyOn(chrome.storage.local, 'get').mockImplementation(() => ({
-      [STORAGE_KEY.QUICK_SLOTS]: partiallyInvalidQuickSlots,
+      quickSlots: partiallyInvalidQuickSlots,
     }));
 
     expect(await fetchQuickSlots()).toEqual(expectedResult);
@@ -249,7 +249,7 @@ describe('Test #2 - 유효하지 않은 퀵슬롯 정보를 불러올 경우 대
     };
 
     jest.spyOn(chrome.storage.local, 'get').mockImplementation(() => ({
-      [STORAGE_KEY.QUICK_SLOTS]: invalidQuickSlots,
+      quickSlots: invalidQuickSlots,
     }));
 
     expect(await fetchQuickSlots()).toEqual(DEFAULT_QUICK_SLOTS_RESPONSE);
@@ -262,7 +262,7 @@ describe('Test #2 - 유효하지 않은 퀵슬롯 정보를 불러올 경우 대
     };
 
     jest.spyOn(chrome.storage.local, 'get').mockImplementation(() => ({
-      [STORAGE_KEY.QUICK_SLOTS]: invalidQuickSlots,
+      quickSlots: invalidQuickSlots,
     }));
 
     expect(await fetchQuickSlots()).toEqual(DEFAULT_QUICK_SLOTS_RESPONSE);
@@ -272,7 +272,7 @@ describe('Test #2 - 유효하지 않은 퀵슬롯 정보를 불러올 경우 대
     const invalidQuickSlots = 'quick slots';
 
     jest.spyOn(chrome.storage.local, 'get').mockImplementation(() => ({
-      [STORAGE_KEY.QUICK_SLOTS]: invalidQuickSlots,
+      quickSlots: invalidQuickSlots,
     }));
 
     expect(await fetchQuickSlots()).toEqual(DEFAULT_QUICK_SLOTS_RESPONSE);

@@ -17,11 +17,11 @@ const getSortedRandomDefenseHistory = (
 export const fetchRandomDefenseHistory =
   async (): Promise<RandomDefenseHistoryResponse> => {
     const data = await chrome.storage.local.get([
-      STORAGE_KEY.RANDOM_DEFENSE_HISTORY,
-      STORAGE_KEY.IS_TIER_HIDDEN,
+      randomDefenseHistory,
+      isTierHidden,
     ]);
-    const randomDefenseHistory = data[STORAGE_KEY.RANDOM_DEFENSE_HISTORY];
-    const isTierHidden = data[STORAGE_KEY.IS_TIER_HIDDEN];
+    const randomDefenseHistory = datarandomDefenseHistory;
+    const isTierHidden = dataisTierHidden;
     const sanitizedRandomDefenseHistory =
       sanitizeRandomDefenseHistory(randomDefenseHistory);
     const sortedRandomDefenseHistory = getSortedRandomDefenseHistory(
@@ -50,8 +50,8 @@ export const saveRandomDefenseHistory = (
   );
 
   chrome.storage.local.set({
-    [STORAGE_KEY.RANDOM_DEFENSE_HISTORY]: sortedRandomDefenseHistory,
-    [STORAGE_KEY.IS_TIER_HIDDEN]: isHidden,
+    randomDefenseHistory: sortedRandomDefenseHistory,
+    isTierHidden: isHidden,
   });
 };
 

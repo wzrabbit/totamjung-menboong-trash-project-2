@@ -15,29 +15,29 @@ export const isOptionsDataResponse = (
   if (
     !(
       isObject(data) &&
-      STORAGE_KEY.DATA_VERSION in data &&
-      STORAGE_KEY.CHECKED_ALGORITHM_IDS in data &&
-      STORAGE_KEY.QUICK_SLOTS in data &&
-      STORAGE_KEY.TOTAMJUNG_THEME in data &&
-      STORAGE_KEY.HIDER_OPTIONS in data &&
-      STORAGE_KEY.RANDOM_DEFENSE_HISTORY in data &&
-      STORAGE_KEY.IS_TIER_HIDDEN in data &&
-      STORAGE_KEY.FONT_NO in data &&
-      STORAGE_KEY.TIMERS in data
+      dataVersion in data &&
+      checkedAlgorithmIds in data &&
+      quickSlots in data &&
+      totamjungTheme in data &&
+      hiderOptions in data &&
+      randomDefenseHistory in data &&
+      isTierHidden in data &&
+      fontNo in data &&
+      timers in data
     )
   ) {
     return false;
   }
 
   return (
-    data[STORAGE_KEY.DATA_VERSION] === 'v1.2' &&
-    isValidCheckedAlgorithmIds(data[STORAGE_KEY.CHECKED_ALGORITHM_IDS]) &&
-    isQuickSlotsResponse(data[STORAGE_KEY.QUICK_SLOTS]) &&
-    isTotamjungTheme(data[STORAGE_KEY.TOTAMJUNG_THEME]) &&
-    isHiderOptionsResponse(data[STORAGE_KEY.HIDER_OPTIONS]) &&
-    isRandomDefenseHistoryInfos(data[STORAGE_KEY.RANDOM_DEFENSE_HISTORY]) &&
-    typeof data[STORAGE_KEY.IS_TIER_HIDDEN] === 'boolean' &&
-    isFontNo(data[STORAGE_KEY.FONT_NO]) &&
-    isTimers(data[STORAGE_KEY.TIMERS])
+    datadataVersion === 'v1.2' &&
+    isValidCheckedAlgorithmIds(datacheckedAlgorithmIds) &&
+    isQuickSlotsResponse(dataquickSlots) &&
+    isTotamjungTheme(datatotamjungTheme) &&
+    isHiderOptionsResponse(datahiderOptions) &&
+    isRandomDefenseHistoryInfos(datarandomDefenseHistory) &&
+    typeof dataisTierHidden === 'boolean' &&
+    isFontNo(datafontNo) &&
+    isTimers(data[timers])
   );
 };

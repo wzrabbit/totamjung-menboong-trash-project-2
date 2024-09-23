@@ -41,7 +41,7 @@ const UseAppearanceFieldsetMenu = () => {
     }
 
     saveTotamjungTheme(totamjungTheme);
-  }, [totamjungTheme]);
+  }, totamjungTheme);
 
   useEffect(() => {
     if (!isLoaded) {
@@ -49,7 +49,7 @@ const UseAppearanceFieldsetMenu = () => {
     }
 
     saveFontNo(fontNo);
-  }, [fontNo]);
+  }, fontNo);
 
   const updateTotamjungTheme = (totamjungTheme: string) => {
     if (!isLoaded) {
